@@ -1,0 +1,255 @@
+<!--
+calculator 2 generation
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <meta name="google-site-verification" content="YGGJZGaDkl6WfJq29BzpQsCGJehz_aALFETFT4cd_us" />
+  <meta name="yandex-verification" content="b033fc836a151b3a" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112488370-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-112488370-1');
+</script>
+<style type="text/css">
+   
+ .calculator {
+      display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+
+ .result {
+width: 100%;
+height: calc(2.5vmin + 1rem);
+ }
+
+.text1 {
+   font-size: calc(2.5vmin + 1rem);
+   margin-bottom: 3px;
+}
+
+.text2 {
+   font-size: calc(2vmin + 1rem);
+   margin-bottom: 3px;
+   /*-moz-user-select: text;*/
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+}
+
+.text3 {
+   border-top: 1px solid #96d1f8;
+   background: #65a9d7;
+   background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+   background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+   background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+   background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+   background: -o-linear-gradient(top, #3e779d, #65a9d7);
+   padding: 7.5px calc(1vmin + 1rem - 10px);
+   margin: 0 0 0 0;
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: calc(1.8vmin + 1rem - 2px);
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.text3:hover {
+   border-top-color: #28597a;
+   background: #28597a;
+   color: #ccc;
+   }
+.text3:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
+
+.inputField {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-self: stretch;
+
+}
+
+.fun4, .fun3, .fun2, .fun1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.item1 {
+ width: 90%;
+ background: #999;
+ flex-grow: 9;
+ height: calc(3vmin + 2rem);
+}
+
+.item2 {
+ width: 10%;
+ background: #444;
+  flex-grow: 1;
+  height: calc(3vmin + 2rem);
+}
+
+.A1 {
+  width: 100%;
+}
+
+.wrap {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+.footer {
+     margin-top: -5px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+
+}
+
+footer {
+    text-align: center;
+}
+
+
+.scrollbox {
+ overflow: auto;
+ width: 100%;
+ max-height: 30vh;
+ margin: 15px 0px -5px;
+ background:
+  linear-gradient(white 30%, rgba(255,255,255,0)),
+  linear-gradient(rgba(255,255,255,0), white 70%) 0 100%,
+  radial-gradient(farthest-side at 50% 0, rgba(0,0,0,.2), rgba(0,0,0,0)),
+  radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+ background-repeat: no-repeat;
+ background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+ background-attachment: local, local, scroll, scroll;
+}
+
+
+</style>
+  <title>CALCULATOR</title>
+<meta name="description" content="Online calculator with memory list, best online calculator, no equal button calculator, second generation calculator, top online calculator" >
+<meta name="keywords" content="calculator, online, Online calculator with memory list, best online calculator, no equal button calculator, second generation calculator, top online calculator">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- <link rel="stylesheet" href="style.css"> -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+<link rel="stylesheet" href="bootstrap.min.css">
+<!-- <script src="bootstrap.min.css" type="text/css"></script> -->
+</head>
+<body>
+
+<div class="calculator">
+  <div id="wrap" class="wrap">
+      <form><output id="resultID" class="result text1" placeholder="0" ></output> 
+    
+          <div class="inputField">
+              <div id="" class="item1">
+              <input id="inField" class="A1 text1" type="text" placeholder="0" onkeyup = "getCaretPosition(this)"  onclick="getCaretPosition(this)" >
+              
+            </div>
+
+                 <div class="item2">
+                  <button id="addButton" class="A1 text1" type="button" class="formula">&crarr;</button>
+
+                 </div>
+          </div>
+          
+    <!-- </div> -->
+          <div id="tagsField" style="height: auto;" class="scrollbox" contenteditable>
+            <div class="memoryResultList text2">2+2=4</div>
+            <div class="memoryResultList text2">sqrt(2)=1.4142135623730951</div>
+          </div>
+<hr>
+                <div id='second' class="footer ">
+
+                  <div id='fun1' class="fun1">
+
+                      <button class="btnTop text3" type="button" onclick="update2('0')">0</button>
+                       <button class="btnTop text3" type="button" onclick="update2('1')">1</button>
+                       <button class="btnTop text3" type="button" onclick="update2('2')">2</button>
+                       <button class="btnTop text3" type="button" onclick="update2('3')">3</button>
+                       <button class="btnTop text3" type="button" onclick="update2('4')">4</button>
+                       <button class="btnTop text3" type="button" onclick="update2('5')">5</button>
+                       <button class="btnTop text3" type="button" onclick="update2('6')">6</button>
+                       <button class="btnTop text3" type="button" onclick="update2('7')">7</button>
+                       <button class="btnTop text3" type="button" onclick="update2('8')">8</button>
+                       <button class="btnTop text3" type="button" onclick="update2('9')">9</button>
+                       <button id="e" class="btnTop text3" type="button" onclick="update(e)">e</button>
+                   
+                  </div>
+
+                  <div id='fun2' class="fun2">
+
+
+                       <button class="btnTop text3" type="button" onclick="update2('+')">+</button>
+                       <button class="btnTop text3" type="button" onclick="update2('-')">-</button>
+                       <button class="btnTop text3" type="button" onclick="update2('/')">&divide;</button>
+                       <button class="btnTop text3" type="button" onclick="update2('*')">&times;</button>
+                        <button class="btnTop text3" type="button" onclick="update2('^')">^</button>
+                       <button class="btnTop text3" type="button" onclick="update2('(')">(</button>
+                       <button class="btnTop text3" type="button" onclick="update2(')')">)</button>
+                        <button class="btnTop text3" type="button" onclick="update2('.')">.</button>
+                    
+                      <input type="button" class="btnTop text3" name="btnTop" value="&larr;" onclick="deleteChar(this.form.inField)">
+                      <input type="button" class="btnTop text3" name="btnTop" value="Clear" onclick="this.form.inField.value=0;deleteChar2(this.form.inField); this.form.resultID.value=0">
+
+                  </div>
+
+                  <div id='fun3' class="fun3">
+
+                      
+                      
+                      <button id="abs" class="btnTop text3" type="button" onclick="update(abs)">abs()</button>
+                      <button id="sqrt" class="btnTop text3" type="button" onclick="update(sqrt)">sqrt()</button>
+                      <button id="exp" class="btnTop text3" type="button" onclick="update(exp)">exp()</button>
+                      <button id="log" class="btnTop text3" type="button" onclick="update(log)">log()</button>
+                     <!--  <button id="log2" class="btnTop text3" type="button" onclick="update(log2)">log2()</button> -->
+                      <button id="log10" class="btnTop text3" type="button" onclick="update(log10)">log10()</button>
+                    </div>
+                  <div id='fun4' class="fun4">
+                    <button id="pi" class="btnTop text3" type="button" onclick="update(pi)">pi</button>
+                     
+                      <button id="cos" class="btnTop text3" type="button" onclick="update(cos)">cos()</button>
+                      <button id="sin" class="btnTop text3" type="button" onclick="update(sin)">sin()</button>
+                      <button id="tan" class="btnTop text3" type="button" onclick="update(tan)">tan()</button>
+                      <button id="atan" class="btnTop text3" type="button" onclick="update(atan)">atan()</button>
+
+                  </div>
+
+  <footer>
+  <hr>
+  
+  <p><a href="https://www.instagram.com/alfacalculator/" target="">More info/instagram</a></p>
+</footer>
+                </div>
+
+</form>
+
+  </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="jscript.js"></script>
+  <script src="math.js" type="text/javascript"></script>
+</body>
+</html>
